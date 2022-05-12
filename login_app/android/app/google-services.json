@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "363754970570",
+    "project_id": "flutterfirebase-b0e15",
+    "storage_bucket": "flutterfirebase-b0e15.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363754970570:android:9a0d129cb0bd0609880333",
+        "android_client_info": {
+          "package_name": "com.afada.login_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363754970570-14ntk4f0fjia4mlv6vuvg9187qt0ac6h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.afada.login_app",
+            "certificate_hash": "9278f7b52322cf7a6ec6ece3d8d313c795910b39"
+          }
+        },
+        {
+          "client_id": "363754970570-9c0sqg0jihgt7bn2vff8vuf6i9d0bdu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxF4qtjuPZMiOaorm7b35CJbC2c2oMzYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363754970570-9c0sqg0jihgt7bn2vff8vuf6i9d0bdu0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
