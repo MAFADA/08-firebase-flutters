@@ -17,7 +17,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController? _emailController;
 
-  TextEditingController _passController;
+  TextEditingController? _passController;
 
   @override
   Widget build(BuildContext context) {
