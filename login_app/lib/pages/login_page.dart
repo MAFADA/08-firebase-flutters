@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:login_app/pages/first_screen.dart';
-// import 'package:login_app/services/sign_in.dart';
-import 'package:login_app/widgets/sign_in_button.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:login_app/services/sign_in.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+import '../widgets/sign_in_button.dart';
 
 // void main() => runApp(const MaterialApp(
 //       home: LoginPage(),
@@ -15,9 +18,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController? _emailController;
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
 
-  TextEditingController? _passController;
+  @override
+  void dispose();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                             const Text('Email'),
                             const SizedBox(height: 8),
                             TextFormField(
-                              controller: _emailController,
+                              controller: emailController,
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
                                 hintText: 'Email',
@@ -70,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             const SizedBox(height: 8),
                             TextFormField(
-                              controller: _passController,
+                              controller: passController,
                               obscureText: true,
                               decoration: InputDecoration(
                                 hintText: 'Password',
@@ -94,11 +99,27 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             const SizedBox(height: 20),
                             Container(
-                              width: double.infinity,
+                              width: 300,
                               child: ElevatedButton(
                                 onPressed: () {},
                                 child: const Text(
                                   'Login',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 300,
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  FirebaseAuth.instance
+                                      .createUserWithEmailAndPassword(
+                                          email: emailController.text,
+                                          password: passController.text);
+                                  setState(() {});
+                                },
+                                child: const Text(
+                                  'SignUp',
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),

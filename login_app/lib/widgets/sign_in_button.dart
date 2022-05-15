@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_app/pages/first_screen.dart';
 import 'package:login_app/services/sign_in.dart';
@@ -10,19 +9,22 @@ class SignInButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       // splashColor: Colors.grey,
-      onPressed: () async {
-        User? user = await Authentication.signInWithGoogle(context: context);
-
-        if (user != null) {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => FirstScreen(
-                    user: user,
-                  )));
-        }
+      onPressed: () {
+        signInWithGoogle().then((result) {
+          if (result != null) {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return FirstScreen();
+                },
+              ),
+            );
+          }
+        });
       },
       // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       // highlightElevation: 0,
-      // borderSide: const BorderSide(color: Colors.grey),
+      // borderSide: BorderSide(color: Colors.grey),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
         child: Row(
